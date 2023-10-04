@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Javascript to calculate
+    </title>
+</head>
+
+<body>
+
+    <h2>Rakesh Somanaboina shows tip amounts</h2>
+
+    <form>
+        <label for="baseamount">Enter base amount</label>
+        <input type="number" id="baseamount" name="baseamount" step=2 value=50> <br>
+
+        <label for="tipamount">Enter the tip percent</label>
+        <input type="number" id="tipamount" name="tipamount" value=15> <br>
+
+        <input type="button" onclick="tips()" value="Show tip ">
+    </form>
+
+
+    <p id="result">This text will be replaced by tips result</p>
+
+    <form>
+        <input type="radio" id="rg1_sum" name="calculation" value="sum" onclick="chooseOp()">
+        <label for="rg1_sum">sum</label></br>
+
+        <input type="radio" id="rg1_diff" name="calculation" value="difference" onclick="chooseOp()">
+        <label for="rg1_diff">diff</label></br>
+
+        <input type="radio" id="rg1_mult" name="calculation" value="product" onclick="chooseOp()">
+        <label for="rg1_mult">mult</label></br>
+    </form>
+    <p id="calculationResult">This text will be replaced by calculation result</p>
+    <script>
+
+        function tips() {
+            let myOutput = "";
+            let toShow = "";
+            baseAmount = document.getElementById("baseamount").value
+            tipAmount = document.getElementById("tipamount").value
+            displayElement = document.getElementById("result")
+
+            for (let i = 0; i < 5; i++) {
+                loopTipAmt = parseInt(tipAmount) + (i * 4)
+                toShow += loopTipAmt + "% is " + parseInt(baseAmount) * loopTipAmt / 100 + ";";
+            }
+
+            displayElement.innerHTML = "Tip are : " + toShow;
+        }
+
+        function chooseOp() {
+            let calOutput = "";
+            let operation = "";
+            baseAmount = document.getElementById("baseamount").value
+            tipAmount = document.getElementById("tipamount").value
+            sumOpt = document.getElementById("rg1_sum").checked
+            diffOpt = document.getElementById("rg1_diff").checked
+            multOpt = document.getElementById("rg1_mult").checked
+            displayElement = document.getElementById("calculationResult")
+
+            if (sumOpt) {
+                operation = "sum";
+                calOutput = parseInt(baseAmount) + parseInt(tipAmount);
+            } else if (diffOpt) {
+                operation = "difference";
+                calOutput = parseInt(baseAmount) - parseInt(tipAmount);
+            } else {
+                operation = "product";
+                calOutput = parseInt(baseAmount) * parseInt(tipAmount);
+            }
+
+            displayElement.innerHTML = operation + " of " + baseAmount + " and " + tipAmount + " is " + calOutput;
+        }
+    </script>
+
+</body>
+
+</html>
