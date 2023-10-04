@@ -16,9 +16,10 @@
         <label for="guessauthor">Guess the author </label>
         <input type="text" id="guessauthor" name="guessauthor" autofocus> <br>
 
-        <input type="button" onclick="checkAuthor()" value="Check the guess">
+        <input type="button" id="btnCheckAuthor" onclick="checkAuthor()" value="Check the guess">
     </form>
     <p id="result">The guessed author is correct or not shown here </p>
+    <div id="incorrectGuess"></div>
     <div class="container">
         <img id="imageElement" src="images/NewYork.jpeg" alt="an image of New york city" onclick="selectImage()"
             height="100px" width="100px">
@@ -28,7 +29,7 @@
         let good = 0;
         let oops = 0;
         let useImage = 1;
-        
+
         function selectImage() {
             displayImage = document.getElementById("imageElement");
             switch (useImage) {
@@ -48,6 +49,15 @@
         }
 
         function checkAuthor() {
+            incorrectdisplay = document.getElementById("incorrectGuess")
+            incorrectdisplay.innerHTML = "Incorrect guesses : " + (oops + 1);
+            if (oops > 5) {
+                alert("Sorry");
+                oops++;
+                displayElement.innerHTML = "oops count : " + oops;
+                document.getElementById("btnCheckAuthor").setAttribute("onClick", "OutOfGuess()");
+                return;
+            }
             authorname = document.getElementById("authorname").value
             guessauthor = document.getElementById("guessauthor").value
             displayElement = document.getElementById("result")
@@ -60,6 +70,11 @@
                 oops++;
                 displayElement.innerHTML = "oops count : " + oops;
             }
+        }
+
+        function OutOfGuess() {
+            alert("Sorry, ran out of guesses.")
+            return;
         }
     </script>
 
