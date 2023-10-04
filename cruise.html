@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html>
- <head>
+
+<head>
     <title>
         Cruise with Javascript
     </title>
- </head>
+</head>
+
 <body>
 
-<h2>Rakesh Somanaboina goes on a cruise</h2>
+    <h2>Rakesh Somanaboina goes on a cruise</h2>
 
-<form>
-    <input type="checkbox" id="cb1_cabin"  value="True">
-    <label for="cb1_cabin">Shares Cabin</label></br>
-  
-    <input type="checkbox" id="cb1_breakfast" value="True">
-    <label for="cb1_breakfast">Breakfast</label></br>
-  
-    <input type="checkbox" id="cb1_pool"  value="False" >
-    <label for="cb1_pool">Pool Pass</label></br>
+    <form>
+        <input type="checkbox" id="cb1_cabin" value="True">
+        <label for="cb1_cabin">Shares Cabin</label></br>
 
-    <input type="button" onclick="selectCruise()" value="Select a cruise ">
-  </form>
-<br>
-  <form>
-    <label for="days">Enter the number of days</label>
-    <input type="text" id="days" name="days"> <br>
+        <input type="checkbox" id="cb1_breakfast" value="True">
+        <label for="cb1_breakfast">Breakfast</label></br>
 
-    <label for="price">Enter price </label>
-    <input type="text" id="price" name="price"> <br>
+        <input type="checkbox" id="cb1_pool" value="False">
+        <label for="cb1_pool">Pool Pass</label></br>
 
-    <input type="button" onclick="updateCruise()" value="Update the cruise">
-</form>
+        <input type="button" onclick="selectCruise()" value="Select a cruise ">
+    </form>
+    <br>
+    <form>
+        <label for="days">Enter the number of days</label>
+        <input type="text" id="days" name="days"> <br>
 
-<p id="result">This text will be replaced </p>
+        <label for="price">Enter price </label>
+        <input type="text" id="price" name="price"> <br>
 
-<script> 
-let my_cruise = {};
+        <input type="button" onclick="updateCruise()" value="Update the cruise">
+    </form>
 
-function selectCruise(){
-    my_cruise = {};
-    let toShow = "";
-    isCabin = document.getElementById("cb1_cabin").checked
-    my_cruise.shared = isCabin;
-    isBreakFast = document.getElementById("cb1_breakfast").checked
-    my_cruise.breakfast = isBreakFast;
-    isPool = document.getElementById("cb1_pool").checked
-    my_cruise.pool = isPool; 
-    
-    displayElement = document.getElementById("result")
-    for (var key in my_cruise) {
-   toShow += key + "-" + my_cruise[key] + "<br>"
-}
-    displayElement.innerHTML = toShow;
-   
-}
+    <p id="result">This text will be replaced </p>
 
-function updateCruise(){
-    let toShow = "";
-    numOfDays = document.getElementById("days").value
-    my_cruise["days"] = numOfDays;
-    price = document.getElementById("price").value
-    my_cruise["price"] = price;
-    
-    displayElement = document.getElementById("result")
-    for (var key in my_cruise) {
-   toShow += key + "-" + my_cruise[key] + "<br>"
-}
-    displayElement.innerHTML = toShow;
-   
-}
-</script>
+    <script>
+        let my_cruise = {};
+
+        function selectCruise() {
+            my_cruise = {};
+            let toShow = "";
+            isCabin = document.getElementById("cb1_cabin").checked
+            my_cruise.shared = isCabin;
+            isBreakFast = document.getElementById("cb1_breakfast").checked
+            my_cruise.breakfast = isBreakFast;
+            isPool = document.getElementById("cb1_pool").checked
+            my_cruise.pool = isPool;
+
+            displayElement = document.getElementById("result")
+            for (var key in my_cruise) {
+                toShow += key + "-" + my_cruise[key] + "<br>"
+            }
+            displayElement.innerHTML = toShow;
+        }
+
+        function updateCruise() {
+            let toShow = "";
+            numOfDays = document.getElementById("days").value
+            my_cruise["days"] = numOfDays;
+            price = document.getElementById("price").value
+            my_cruise["price"] = price;
+
+            displayElement = document.getElementById("result")
+            for (var key in my_cruise) {
+                toShow += key + "-" + my_cruise[key] + "<br>"
+            }
+            displayElement.innerHTML = toShow;
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
