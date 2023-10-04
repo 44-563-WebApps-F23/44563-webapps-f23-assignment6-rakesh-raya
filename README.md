@@ -2,3 +2,6 @@
 # WebApps-F23-Assignment-6
 Introduction to Java Script and DOM
 
+Hosted at - [Github pages Click here to open Author page](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-rakesh-raya/author.html)
+[Github pages Click here to open Tips page](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-rakesh-raya/tips.html)
+[Github pages Click here to open Cruise page](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-rakesh-raya/cruise.html)
