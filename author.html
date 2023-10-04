@@ -19,11 +19,33 @@
         <input type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
     <p id="result">The guessed author is correct or not shown here </p>
-    
+    <div class="container">
+        <img id="imageElement" src="images/NewYork.jpeg" alt="an image of New york city" onclick="selectImage()"
+            height="100px" width="100px">
+    </div>
     <script>
 
         let good = 0;
         let oops = 0;
+        let useImage = 1;
+        
+        function selectImage() {
+            displayImage = document.getElementById("imageElement");
+            switch (useImage) {
+                case 1:
+                    displayImage.src = "images/Oslo.jpg";
+                    useImage += 1;
+                    break;
+                case 2:
+                    displayImage.src = "images/Sydney.jpg";
+                    useImage += 1;
+                    break;
+                case 3:
+                    displayImage.src = "images/NewYork.jpeg";
+                    useImage = 1;
+                    break;
+            }
+        }
 
         function checkAuthor() {
             authorname = document.getElementById("authorname").value
