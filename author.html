@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Interactions</title>
+</head>
+
+<body>
+
+    <h2>Author entry Rakesh Somanaboina</h2>
+
+    <form>
+        <label for="authorname">The hidden author name </label>
+        <input type="password" id="authorname" name="authorname" value="Dickens"> <br>
+
+        <label for="guessauthor">Guess the author </label>
+        <input type="text" id="guessauthor" name="guessauthor" autofocus> <br>
+
+        <input type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
+    <p id="result">The guessed author is correct or not shown here </p>
+    
+    <script>
+
+        let good = 0;
+        let oops = 0;
+
+        function checkAuthor() {
+            authorname = document.getElementById("authorname").value
+            guessauthor = document.getElementById("guessauthor").value
+            displayElement = document.getElementById("result")
+            if (authorname == guessauthor) {
+                alert("You got it right");
+                good++;
+                displayElement.innerHTML = "good count : " + good;
+            } else {
+                alert("Sorry");
+                oops++;
+                displayElement.innerHTML = "oops count : " + oops;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
